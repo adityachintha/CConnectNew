@@ -25,7 +25,7 @@ export default function App() {
         <Drawer.Screen name="Splash" component={SplashScreen} />
         <Drawer.Screen name="Register" component={RegisterScreen} />
         <Drawer.Screen name="Login" component={LoginScreen} />
-        <Drawer.Screen name="Home" component={HomePage} />
+        <Drawer.Screen name="Homepage" component={HomePage} />
         <Drawer.Screen name="About" component={AboutScreen} />
         
       </Drawer.Navigator>
