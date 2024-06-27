@@ -13,6 +13,7 @@ import LoginScreen from './src/components/LoginScreen.js';
 import RegisterScreen from './src/components/RegisterScreen';
 import HomePage from './src/components/HomePage';
 import AboutScreen from './src/components/AboutScreen';
+import SettingsScreen from './src/components/SettingsScreen.js';
 
 
 const Drawer = createDrawerNavigator();
@@ -27,6 +28,7 @@ export default function App() {
         <Drawer.Screen name="Login" component={LoginScreen} />
         <Drawer.Screen name="Homepage" component={HomePage} />
         <Drawer.Screen name="About" component={AboutScreen} />
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
         
       </Drawer.Navigator>
    
