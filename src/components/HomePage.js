@@ -37,11 +37,11 @@ const StudentCard = ({ student }) => {
         <Text style={styles.cardValue}>Yes/No</Text>
       </View>
       <View style={styles.btnContainer}>
-      <View style={styles.line} />
-      <Button title="Email" onPress={() => { /* Email action */ }} />
-      <View style={styles.line} />
-      <Button title="Call" onPress={() => { /* Call action */ }} />
-    </View>
+        <View style={styles.btnAction}/>
+          <Button  title="Email" onPress={() => { /* Email action */ }} />
+        <View style={styles.line} />
+          <Button title="Call" onPress={() => { /* Call action */ }} />
+        </View>
     </View>
   );
 };
@@ -55,7 +55,7 @@ const HomePage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Welcome to the HomePage</Text>
+      <Text style={styles.header}>List of Students</Text>
       {students.map((student, index) => (
         <StudentCard key={index} student={student} />
       ))}
@@ -67,19 +67,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
     padding: 20,
   },
   header: {
-    fontSize: 24,
+    fontSize: 20,
+    fontWeight: '400',
     marginBottom: 20,
+    
+    textAlign:'left',
   },
   card: {
     width: '100%',
     padding: 20,
     marginVertical: 10,
-    borderWidth: 1,
+    borderWidth: 0.1,
     borderRadius: 5,
+    shadowOpacity: 0.1,
+    elevation:2,
+    shadowOffset:2,
+    backgroundColor:'#FFF',
   },
   row: {
     flexDirection: 'row',
@@ -87,7 +93,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cardKey: {
-    fontWeight: 'bold',
+    fontWeight: '300',
   },
   cardValue: {
     textAlign: 'right',
@@ -97,8 +103,12 @@ const styles = StyleSheet.create({
   line: {
     height: 1,
     backgroundColor: 'black',
-    opacity: 0.2,
-  }
+    opacity: 0.1,
+  },
+  btnAction:{
+    backgroundColor: "red",
+
+  },
 });
 
 export default HomePage;
