@@ -1,9 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 const AboutScreen = () => {
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require("../../assets/finalconnect.jpg")}
+      ></Image>
       <Text style={styles.h1}>Class Connect</Text>
       <View style={styles.section}>
         <Text style={styles.subheader}>Developers</Text>
@@ -46,6 +50,12 @@ const styles = StyleSheet.create({
   section: {
     flexDirection: "column",
     justifyContent: "center",
+  },
+  image: {
+    width: "100%",
+    height: 200,
+    resizeMode: "contain",
+    marginBottom: 20,
   },
 });
 
