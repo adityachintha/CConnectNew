@@ -1,20 +1,52 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const SettingsScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Welcome to the Splash Screen</Text>
+      <TouchableOpacity style={styles.option}>
+        <Icon name="person" size={20} style={styles.icon} />
+        <Text style={styles.text}>Edit Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option}>
+        <Icon name="notifications" size={20} style={styles.icon} />
+        <Text style={styles.text}>Notifications</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option}>
+        <Icon name="bookmark" size={20} style={styles.icon} />
+        <Text style={styles.text}>Saved</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option}>
+        <Icon name="access-time" size={20} style={styles.icon} />
+        <Text style={styles.text}>Time Spent</Text>
+      </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  option: {
+    flexDirection: 'row',
     alignItems: 'center',
+    marginVertical: 10,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  text: {
+    fontSize: 16,
   },
 });
 
-export default SettingsScreen
+export default SettingsScreen;
