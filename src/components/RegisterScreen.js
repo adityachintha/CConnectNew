@@ -1,14 +1,17 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
 const RegisterScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Register</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Full Name"
-      />
+      {/* <Text style={styles.title}>Register</Text> */}
+      <TextInput style={styles.input} placeholder="Full Name" />
       <TextInput
         style={styles.input}
         placeholder="Email Address"
@@ -40,8 +43,8 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 16,
   },
   title: {
@@ -49,33 +52,33 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 50,
-    backgroundColor: '#E0E0E0',
+    backgroundColor: "#fafafa",
     borderRadius: 8,
     paddingHorizontal: 16,
     marginBottom: 16,
   },
   registerButton: {
-    width: '100%',
+    width: "100%",
     height: 50,
-    backgroundColor: '#5E83FB',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#5E83FB",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 8,
     marginBottom: 16,
   },
   registerButtonText: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 16,
   },
   footer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 16,
   },
   signInText: {
-    color: '#5E83FB',
+    color: "#5E83FB",
   },
 });
 
