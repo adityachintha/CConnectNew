@@ -7,7 +7,10 @@ import {
   StyleSheet,
 } from "react-native";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
+  const handleNext = () => {
+    navigation.navigate("Register"); // Navigate to Login screen
+  };
   return (
     <View style={styles.container}>
       {/* <Text style={styles.title}>Register</Text> */}
@@ -27,7 +30,7 @@ const RegisterScreen = () => {
         placeholder="Confirm Password"
         secureTextEntry={true}
       />
-      <TouchableOpacity style={styles.registerButton}>
+      <TouchableOpacity style={styles.registerButton} onPress={handleNext}>
         <Text style={styles.registerButtonText}>Register</Text>
       </TouchableOpacity>
       <View style={styles.footer}>

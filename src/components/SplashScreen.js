@@ -1,15 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { useEffect } from "react";
 
-const SplashScreen = () => {
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("Onboarding");
+    }, 2000);
+  }, []);
+
   return (
     <View style={styles.container}>
-      <View style={styles.card2}>
-        <Text style={styles.text}>Admin Login</Text>
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.text}>Student Login</Text>
-      </View>
+      <Image
+        style={styles.image}
+        source={require("../../assets/Student.png")}
+      ></Image>
+      <Text style={styles.text}>Class Connect</Text>
     </View>
   );
 };
@@ -20,42 +26,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#e3e8f8",
-  },
-  card2: {
-    flexDirection: "column",
-    width: "70%",
-    height: "30%",
-    padding: 20,
-    marginBottom: 40,
-    borderWidth: 0.1,
-    borderRadius: 10,
-    shadowOpacity: 0.1,
-    elevation: 2,
-    shadowOffset: 2,
-    backgroundColor: "#514d4d",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  card: {
-    flexDirection: "column",
-    width: "70%",
-    height: "30%",
-    padding: 20,
-    marginBottom: 40,
-    borderWidth: 0.1,
-    borderRadius: 10,
-    shadowOpacity: 0.1,
-    elevation: 2,
-    shadowOffset: 2,
     backgroundColor: "#5E83FB",
-    justifyContent: "center",
-    alignItems: "center",
   },
   text: {
-    fontSize: 20,
-    fontWeight: "500",
+    fontSize: 30,
+    fontWeight: "700",
     color: "#fff",
+  },
+  image: {
+    alignContent: "center",
   },
 });
 

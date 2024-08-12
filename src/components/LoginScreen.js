@@ -7,7 +7,10 @@ import {
   StyleSheet,
 } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
+  const handleNext = () => {
+    navigation.replace("Drawer"); // Navigate to HomePage
+  };
   return (
     <View style={styles.container}>
       {/* <Text style={styles.title}>Login</Text> */}
@@ -21,7 +24,7 @@ const LoginScreen = () => {
         placeholder="Password"
         secureTextEntry={true}
       />
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleNext}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
