@@ -21,6 +21,7 @@ import Jobs from "./src/components/Jobs.js";
 import Messages from "./src/components/messages.js";
 import Network from "./src/components/Network.js";
 import studentCourse from "./src/components/studentCourse.js";
+import AdminHomePage from "./src/components/AdminHomePage.js";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -114,6 +115,11 @@ export default function App() {
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen
+          name="Admin"
+          options={{ headerShown: true }}
+          component={AdminHomePage}
+        />
         <Stack.Screen
           name="Drawer"
           component={DrawerNavigator}

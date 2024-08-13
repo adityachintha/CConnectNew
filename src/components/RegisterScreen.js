@@ -5,15 +5,17 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from "react-native";
 
 const RegisterScreen = ({ navigation }) => {
   const handleNext = () => {
-    navigation.navigate("Register"); // Navigate to Login screen
+    Alert.alert("Registration Successfull");
+    navigation.navigate("Login");
   };
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>Register</Text> */}
+      <Text style={styles.title}>Register</Text>
       <TextInput style={styles.input} placeholder="Full Name" />
       <TextInput
         style={styles.input}
@@ -49,16 +51,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "#e3e8f8",
+    backgroundColor: "#ffffff",
   },
   title: {
-    fontSize: 24,
-    marginBottom: 32,
+    fontSize: 32,
+    marginBottom: 16,
+    fontWeight: "bold",
   },
   input: {
     width: "100%",
     height: 50,
-    backgroundColor: "#fafafa",
+    backgroundColor: "#f1f1f1",
     borderRadius: 8,
     paddingHorizontal: 16,
     marginBottom: 16,
