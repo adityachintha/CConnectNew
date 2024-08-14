@@ -1,31 +1,38 @@
-import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { BottomSheet } from "@rneui/themed";
 
-const StudentCard = ({ student }) => {
+const AccommodationCard = ({ accommodation, onPressContact }) => {
   return (
     <View style={styles.card}>
-      <View style={styles.row}>
-        <Text style={styles.cardKey}>Student Name:</Text>
-        <Text style={styles.cardValue}>{student.name}</Text>
+      <View style={styles.column}>
+        <Text style={styles.text}>{accommodation.title}</Text>
+      </View>
+      <View style={styles.column}>
+        <Image source={accommodation.image}></Image>
+      </View>
+      <View style={styles.row1}>
+        <Text style={styles.subText}>{accommodation.desc}</Text>
       </View>
       <View style={styles.row}>
-        <Text style={styles.cardKey}>Need Accommodation?</Text>
-        <Text style={styles.cardValue}>Yes/No</Text>
+        <Image source={require("../../assets/home.png")}></Image>
+        <Text style={styles.subText}>{accommodation.address}</Text>
       </View>
       <View style={styles.row}>
-        <Text style={styles.cardKey}>Recommend Part-time?</Text>
-        <Text style={styles.cardValue}>Yes/No</Text>
+        <Image source={require("../../assets/check.png")}></Image>
+        <Text style={styles.subText}>{accommodation.price}</Text>
       </View>
-
-      <View>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Email</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Call</Text>
+      <View style={styles.btnContainer}>
+        <TouchableOpacity style={styles.secondaryBtn} onPress={onPressContact}>
+          <Text style={styles.secondaryText}>Contact to Visit</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -33,21 +40,82 @@ const StudentCard = ({ student }) => {
 };
 
 const Accommodation = () => {
-  const students = [
-    { name: "Student 1", needAccommodation: true, recommendPartTime: false },
-    { name: "Student 2", needAccommodation: false, recommendPartTime: true },
-    { name: "Student 3", needAccommodation: true, recommendPartTime: true },
+  const [isVisible, setIsVisible] = useState("false");
+  const accommodations = [
+    {
+      title: "Looking for a Roommate",
+      image: require("../../assets/room2.png"), // Replace with actual image path
+      desc: "1 Bedroom, Kitchen, and 1 Bath - 600 Sq.ft",
+      address: "35 Bayfield Street",
+      price: "1500$ CAD/ month",
+    },
+    {
+      title: "Cozy Apartment in Downtown",
+      image: require("../../assets/room1.png"), // Replace with actual image path
+      desc: "2 Bedrooms, 1 Kitchen, and 2 Baths - 800 Sq.ft",
+      address: "100 King Street",
+      price: "1800$ CAD/ month",
+    },
+    {
+      title: "Shared Living Space",
+      image: require("../../assets/room2.png"), // Replace with actual image path
+      desc: "Shared Bedroom, Kitchen, and Bath - 500 Sq.ft",
+      address: "250 Queen Street",
+      price: "1200$ CAD/ month",
+    },
+    {
+      title: "Modern Condo for Rent",
+      image: require("../../assets/room1.png"), // Replace with actual image path
+      desc: "1 Bedroom, Kitchen, and 1 Bath - 700 Sq.ft",
+      address: "400 Wellington Street",
+      price: "1600$ CAD/ month",
+    },
+    {
+      title: "Furnished Studio Apartment",
+      image: require("../../assets/room1.png"), // Replace with actual image path
+      desc: "Studio, Kitchen, and 1 Bath - 450 Sq.ft",
+      address: "50 Front Street",
+      price: "1400$ CAD/ month",
+    },
   ];
 
+  const handlePress = () => {
+    setIsVisible(true);
+  };
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.header}> List of Accommodation </Text>
-        {students.map((studentDetails, index) => (
-          <StudentCard key={index} student={studentDetails} />
-        ))}
-      </View>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.header}> List of Networks </Text>
+          {accommodations.map((accommodationDetails, index) => (
+            <AccommodationCard
+              key={index}
+              accommodation={accommodationDetails}
+              onPressContact={handlePress}
+            />
+          ))}
+        </View>
+      </ScrollView>
+
+      <BottomSheet isVisible={isVisible}>
+        <View style={styles.bottomSheet}>
+          <Text style={styles.bottomSheetText}>
+            Would you like to share your details with the property agent to book
+            a visit?
+          </Text>
+          <TouchableOpacity style={styles.primaryBtn}>
+            <Text style={styles.primaryText}>Share</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.secondaryBtn}
+            onPress={() => setIsVisible(false)}
+          >
+            <Text style={styles.secondaryText}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+      </BottomSheet>
+    </View>
   );
 };
 
@@ -56,13 +124,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     padding: 20,
-    backgroundColor: "#eceffb",
+    backgroundColor: "#ffffff",
   },
   header: {
     fontSize: 20,
     fontWeight: "400",
     marginBottom: 20,
-
     textAlign: "left",
   },
   card: {
@@ -70,24 +137,44 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 10,
     borderWidth: 0.1,
-    borderRadius: 5,
-    shadowOpacity: 0.1,
+    borderRadius: 10,
+    shadowOpacity: 0.2,
     elevation: 2,
     shadowOffset: 2,
     backgroundColor: "#FFF",
   },
   row: {
     flexDirection: "row",
+    padding: 5,
+    marginBottom: 15,
+    alignItems: "center",
+  },
+  row1: {
+    flexDirection: "row",
+    marginBottom: 15,
+  },
+  column: {
     justifyContent: "space-between",
     marginBottom: 15,
   },
-  cardKey: {
+  subText: {
     fontWeight: "300",
+    paddingLeft: 10,
   },
-  cardValue: {
-    textAlign: "right",
+  desc: {
+    fontSize: 14,
   },
-  btnContainer: {},
+  text: {
+    textAlign: "left",
+    fontSize: 20,
+    fontWeight: "600",
+  },
+  bottomSheetText: {
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "300",
+    marginBottom: 30,
+  },
   line: {
     height: 1,
     backgroundColor: "black",
@@ -96,18 +183,48 @@ const styles = StyleSheet.create({
   btnAction: {
     backgroundColor: "red",
   },
-  loginButton: {
+  primaryBtn: {
     width: "100%",
-    height: 50,
+    height: 40,
     backgroundColor: "#5E83FB",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: 100,
     marginBottom: 10,
   },
-  loginButtonText: {
+  secondaryBtn: {
+    width: "100%",
+    height: 40,
+    backgroundColor: "#E6EBFD",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 100,
+    marginBottom: 20,
+  },
+  primaryText: {
     color: "#FFFFFF",
     fontSize: 16,
+    fontWeight: "700",
+  },
+  secondaryText: {
+    color: "#5E83FB",
+    fontSize: 16,
+    fontWeight: "700",
+  },
+  btnContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  subSubText: {
+    fontSize: 12,
+    fontWeight: "200",
+    textAlign: "center",
+  },
+  bottomSheet: {
+    backgroundColor: "#fff",
+    padding: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
 });
 
