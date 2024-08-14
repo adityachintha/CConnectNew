@@ -13,6 +13,10 @@ const RegisterScreen = ({ navigation }) => {
     Alert.alert("Registration Successfull");
     navigation.navigate("Login");
   };
+
+  const handleSignIn = () => {
+    navigation.navigate("Login");
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
@@ -37,7 +41,7 @@ const RegisterScreen = ({ navigation }) => {
       </TouchableOpacity>
       <View style={styles.footer}>
         <Text>Already have an account? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleSignIn}>
           <Text style={styles.signInText}>Sign In</Text>
         </TouchableOpacity>
       </View>

@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 15,
+    marginBottom: 8,
+    alignContent: "center",
   },
   column: {
     justifyContent: "space-between",
