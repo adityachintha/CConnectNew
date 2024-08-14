@@ -17,12 +17,12 @@ import AboutScreen from "./src/components/AboutScreen";
 import SettingsScreen from "./src/components/SettingsScreen.js";
 import Onboarding from "./src/components/Onboarding.js";
 import Accommodation from "./src/components/Accommodation.js";
-import Jobs from "./src/components/Jobs.js";
 import Messages from "./src/components/messages.js";
 import Network from "./src/components/Network.js";
 import studentCourse from "./src/components/studentCourse.js";
 import AdminHomePage from "./src/components/AdminHomePage.js";
 import Profile from "./src/components/Profile.js";
+import Jobs from "./src/components/Jobs";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -38,13 +38,13 @@ function TabNavigator() {
 
           if (route.name === "Network") {
             iconName = focused ? "people" : "people-outline";
+          }else if (route.name === "Jobs") {
+              iconName = focused ? "briefcase" : "briefcase-outline";
           } else if (route.name === "Accommodation") {
             iconName = focused ? "bed" : "bed-outline";
           } else if (route.name === "Course") {
             iconName = focused ? "book" : "book-outline";
-          } else if (route.name === "Jobs") {
-            iconName = focused ? "briefcase" : "briefcase-outline";
-          } else if (route.name === "Messages") {
+          }  else if (route.name === "Messages") {
             iconName = focused ? "chatbubbles" : "chatbubbles-outline";
           }
 
@@ -115,13 +115,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Network" component={Network} />
         <Stack.Screen
           name="Admin"
           options={{ headerShown: true }}
