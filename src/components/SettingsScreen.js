@@ -1,14 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const SettingsScreen = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.option}>
-        <Icon name="person" size={20} style={styles.icon} />
-        <Text style={styles.text}>Edit Profile</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.option}>
         <Icon name="notifications" size={20} style={styles.icon} />
         <Text style={styles.text}>Notifications</Text>
@@ -29,16 +25,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   header: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   option: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: 10,
   },
   icon: {

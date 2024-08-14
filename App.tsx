@@ -22,6 +22,7 @@ import Messages from "./src/components/messages.js";
 import Network from "./src/components/Network.js";
 import studentCourse from "./src/components/studentCourse.js";
 import AdminHomePage from "./src/components/AdminHomePage.js";
+import Profile from "./src/components/Profile.js";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -91,10 +92,16 @@ function DrawerNavigator() {
         options={{ headerShown: true, headerTitle: "" }}
       />
       <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: true }}
+      />
+      <Drawer.Screen
         name="About"
         component={AboutScreen}
         options={{ headerShown: true }}
       />
+
       <Drawer.Screen
         name="Settings"
         component={SettingsScreen}

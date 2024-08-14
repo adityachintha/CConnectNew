@@ -87,7 +87,7 @@ const Accommodation = () => {
     <View style={{ flex: 1 }}>
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.header}> List of Networks </Text>
+          <Text style={styles.header}> List of Accommodations </Text>
           {accommodations.map((accommodationDetails, index) => (
             <AccommodationCard
               key={index}
