@@ -9,6 +9,8 @@ const Course = () => {
     { id: '3', name: 'Subject Name 3', time: 'Thursday' },
     { id: '4', name: 'Subject Name 4', time: 'Friday' },
     { id: '5', name: 'Subject Name 5', time: 'Monday' },
+    { id: '6', name: 'Subject Name 5', time: 'Monday' },
+    { id: '7', name: 'Subject Name 5', time: 'Monday' },
   ];
 
   return (
@@ -46,24 +48,7 @@ const Course = () => {
             keyExtractor={item => item.id}
         />
 
-        {/* Bottom Navigation */}
-        <View style={styles.bottomNav}>
-          <TouchableOpacity>
-            <Text style={styles.navItem}>Network</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.navItem}>Accommodation</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={[styles.navItem, styles.activeNavItem]}>Course</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.navItem}>Jobs</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.navItem}>DM's</Text>
-          </TouchableOpacity>
-        </View>
+
       </View>
   );
 };

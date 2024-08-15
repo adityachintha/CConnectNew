@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, FlatList, Modal } from 'react-native';
-
+import Confirmation from "../shared/modals/confirmation";
 
 // JobCard Component
-const JobCard = ({ title, description, location, startDate, pay }) => {
+const JobCard = ({ title, description, location, startDate, pay }) =>{
+    const [modalVisible, setModalVisible] = useState(false); // Add this line
 
     return (
         <View style={styles.card}>
@@ -20,10 +21,17 @@ const JobCard = ({ title, description, location, startDate, pay }) => {
                 <Text style={styles.payRate}>{pay}</Text>
             </View>
 
-            <TouchableOpacity style={styles.applyButton} accessibilityLabel={`Apply for ${title}`} accessibilityHint="Tap to apply for this job">
-                <Text style={styles.applyButtonText}>Apply</Text>
+            <TouchableOpacity style={styles.applyButton} accessibilityLabel={`Apply for ${title}`} accessibilityHint="Tap to apply for this job" onPress={() => setModalVisible(true)}>
+                <Text  style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
-
+            <Confirmation
+                visible={modalVisible}
+                onClose={() => setModalVisible(false)}  // Closes the modal
+                onShare={() => {
+                    // Handle sharing logic
+                    setModalVisible(false);
+                }}
+                />
 
         </View>
     );
