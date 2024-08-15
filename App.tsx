@@ -23,6 +23,7 @@ import studentCourse from "./src/components/bottom-bar/studentCourse.js";
 import AdminHomePage from "./src/components/AdminHomePage.js";
 import Profile from "./src/components/Profile.js";
 import Jobs from "./src/components/bottom-bar/Jobs";
+import LogoutScreen from "./src/components/logout";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -107,6 +108,13 @@ function DrawerNavigator() {
         component={SettingsScreen}
         options={{ headerShown: true }}
       />
+        <Drawer.Screen
+            name="Logout"
+            component={LogoutScreen}
+            options={{ headerShown: true }}
+        />
+
+
     </Drawer.Navigator>
   );
 }
