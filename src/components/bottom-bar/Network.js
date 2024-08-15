@@ -19,18 +19,18 @@ const StudentCard = ({ student }) => {
       <View style={styles.row}>
         <Text style={styles.subText}>Need Accommodation?</Text>
         {student.needAccommodation ? (
-          <Image source={require("../../assets/check.png")} />
+          <Image source={require("../../../assets/check.png")} />
         ) : (
-          <Image source={require("../../assets/slash.png")} />
+          <Image source={require("../../../assets/slash.png")} />
         )}
       </View>
       <View style={styles.row}>
         <Text style={styles.subText}>Recommend Part-time?</Text>
 
         {student.recommendPartTime ? (
-          <Image source={require("../../assets/check.png")} />
+          <Image source={require("../../../assets/check.png")} />
         ) : (
-          <Image source={require("../../assets/slash.png")} />
+          <Image source={require("../../../assets/slash.png")} />
         )}
       </View>
 

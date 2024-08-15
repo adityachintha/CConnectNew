@@ -16,13 +16,13 @@ import HomePage from "./src/components/HomePage";
 import AboutScreen from "./src/components/AboutScreen";
 import SettingsScreen from "./src/components/SettingsScreen.js";
 import Onboarding from "./src/components/Onboarding.js";
-import Accommodation from "./src/components/Accommodation.js";
-import Messages from "./src/components/messages.js";
-import Network from "./src/components/Network.js";
-import studentCourse from "./src/components/studentCourse.js";
+import Accommodation from "./src/components/bottom-bar/Accommodation.js";
+import Messages from "./src/components/bottom-bar/messages.js";
+import Network from "./src/components/bottom-bar/Network.js";
+import studentCourse from "./src/components/bottom-bar/studentCourse.js";
 import AdminHomePage from "./src/components/AdminHomePage.js";
 import Profile from "./src/components/Profile.js";
-import Jobs from "./src/components/Jobs";
+import Jobs from "./src/components/bottom-bar/Jobs";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();

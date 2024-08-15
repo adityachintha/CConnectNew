@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, FlatList, Modal } from 'react-native';
+
 
 // JobCard Component
 const JobCard = ({ title, description, location, startDate, pay }) => {
+
     return (
         <View style={styles.card}>
             <Text style={styles.jobTitle}>{title}</Text>
@@ -21,6 +23,8 @@ const JobCard = ({ title, description, location, startDate, pay }) => {
             <TouchableOpacity style={styles.applyButton} accessibilityLabel={`Apply for ${title}`} accessibilityHint="Tap to apply for this job">
                 <Text style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
+
+
         </View>
     );
 };
