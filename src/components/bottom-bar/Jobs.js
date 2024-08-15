@@ -114,7 +114,7 @@ const Jobs = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.welcomeText}>Welcome to Jobs</Text> */}
+      <Text style={styles.welcomeText}>Welcome to Jobs</Text>
 
       <View style={styles.tabButtonContainer}>
         {/* Part-Time Tab */}
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     position: "absolute",
     top: 10,
-    left: 30,
+    left: 10,
     fontSize: 24,
   },
   tabButtonContainer: {

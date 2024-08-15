@@ -23,11 +23,11 @@ const AccommodationCard = ({ accommodation, onPressContact }) => {
         <Text style={styles.subText}>{accommodation.desc}</Text>
       </View>
       <View style={styles.row}>
-        <Image source={require("../../assets/home.png")}></Image>
+        <Image source={require("../../../assets/home.png")}></Image>
         <Text style={styles.subText}>{accommodation.address}</Text>
       </View>
       <View style={styles.row}>
-        <Image source={require("../../assets/check.png")}></Image>
+        <Image source={require("../../../assets/check.png")}></Image>
         <Text style={styles.subText}>{accommodation.price}</Text>
       </View>
       <View style={styles.btnContainer}>
@@ -44,35 +44,35 @@ const Accommodation = () => {
   const accommodations = [
     {
       title: "Looking for a Roommate",
-      image: require("../../assets/room2.png"), // Replace with actual image path
+      image: require("../../../assets/room2.png"), // Replace with actual image path
       desc: "1 Bedroom, Kitchen, and 1 Bath - 600 Sq.ft",
       address: "35 Bayfield Street",
       price: "1500$ CAD/ month",
     },
     {
       title: "Cozy Apartment in Downtown",
-      image: require("../../assets/room1.png"), // Replace with actual image path
+      image: require("../../../assets/room1.png"), // Replace with actual image path
       desc: "2 Bedrooms, 1 Kitchen, and 2 Baths - 800 Sq.ft",
       address: "100 King Street",
       price: "1800$ CAD/ month",
     },
     {
       title: "Shared Living Space",
-      image: require("../../assets/room2.png"), // Replace with actual image path
+      image: require("../../../assets/room2.png"), // Replace with actual image path
       desc: "Shared Bedroom, Kitchen, and Bath - 500 Sq.ft",
       address: "250 Queen Street",
       price: "1200$ CAD/ month",
     },
     {
       title: "Modern Condo for Rent",
-      image: require("../../assets/room1.png"), // Replace with actual image path
+      image: require("../../../assets/room1.png"), // Replace with actual image path
       desc: "1 Bedroom, Kitchen, and 1 Bath - 700 Sq.ft",
       address: "400 Wellington Street",
       price: "1600$ CAD/ month",
     },
     {
       title: "Furnished Studio Apartment",
-      image: require("../../assets/room1.png"), // Replace with actual image path
+      image: require("../../../assets/room1.png"), // Replace with actual image path
       desc: "Studio, Kitchen, and 1 Bath - 450 Sq.ft",
       address: "50 Front Street",
       price: "1400$ CAD/ month",
