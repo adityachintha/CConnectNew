@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
   },
-  btnContainer: {},
   line: {
     height: 1,
     backgroundColor: "black",
