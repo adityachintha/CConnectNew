@@ -20,8 +20,8 @@ const LoginScreen = ({ navigation }) => {
 
   const handleNext = () => {
     const isAuthorized =
-        email === mockCredentials[role].email &&
-        password === mockCredentials[role].password;
+      email === mockCredentials[role].email &&
+      password === mockCredentials[role].password;
 
     if (isAuthorized) {
       if (role === "Admin") {
@@ -39,69 +39,69 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Login</Text>
-        <Text style={styles.subTitle}>Choose your role to Login</Text>
-        <View style={styles.roleContainer}>
-          <TouchableOpacity
-              style={[
-                styles.roleButton,
-                role === "Student" && styles.selectedRoleButton,
-              ]}
-              onPress={() => setRole("Student")}
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
+      <Text style={styles.subTitle}>Choose your role to Login</Text>
+      <View style={styles.roleContainer}>
+        <TouchableOpacity
+          style={[
+            styles.roleButton,
+            role === "Student" && styles.selectedRoleButton,
+          ]}
+          onPress={() => setRole("Student")}
+        >
+          <Text
+            style={
+              role === "Student" ? styles.selectedRoleText : styles.roleText
+            }
           >
-            <Text
-                style={
-                  role === "Student" ? styles.selectedRoleText : styles.roleText
-                }
-            >
-              Student
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-              style={[
-                styles.roleButton,
-                role === "Admin" && styles.selectedRoleButton,
-              ]}
-              onPress={() => setRole("Admin")}
-          >
-            <Text
-                style={role === "Admin" ? styles.selectedRoleText : styles.roleText}
-            >
-              Admin
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <TextInput
-            style={styles.input}
-            placeholder="Email Address"
-            keyboardType="email-address"
-            value={email}
-            onChangeText={setEmail}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry={true}
-            value={password}
-            onChangeText={setPassword}
-        />
-        <TouchableOpacity style={styles.loginButton} onPress={handleNext}>
-          <Text style={styles.loginButtonText}>Login</Text>
+            Student
+          </Text>
         </TouchableOpacity>
-        <View>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-            <Text style={styles.signInText}>Register</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={[
+            styles.roleButton,
+            role === "Admin" && styles.selectedRoleButton,
+          ]}
+          onPress={() => setRole("Admin")}
+        >
+          <Text
+            style={role === "Admin" ? styles.selectedRoleText : styles.roleText}
+          >
+            Admin
+          </Text>
+        </TouchableOpacity>
+      </View>
 
-        <View style={styles.footer}>
+      <TextInput
+        style={styles.input}
+        placeholder="Email Address"
+        keyboardType="email-address"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry={true}
+        value={password}
+        onChangeText={setPassword}
+      />
+      <TouchableOpacity style={styles.loginButton} onPress={handleNext}>
+        <Text style={styles.loginButtonText}>Login</Text>
+      </TouchableOpacity>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <Text style={styles.signInText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* <View style={styles.footer}>
           <Text>Student Credentials</Text>
           <Text>Student@gmail.com</Text>
           <Text>Student123</Text>
-        </View>
-      </View>
+        </View> */}
+    </View>
   );
 };
 

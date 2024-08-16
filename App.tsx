@@ -24,6 +24,7 @@ import AdminHomePage from "./src/components/AdminHomePage.js";
 import Profile from "./src/components/Profile.js";
 import Jobs from "./src/components/bottom-bar/Jobs";
 import LogoutScreen from "./src/components/logout";
+import chatMessages from "./src/components/chatMessages.js";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -39,13 +40,13 @@ function TabNavigator() {
 
           if (route.name === "Network") {
             iconName = focused ? "people" : "people-outline";
-          }else if (route.name === "Jobs") {
-              iconName = focused ? "briefcase" : "briefcase-outline";
+          } else if (route.name === "Jobs") {
+            iconName = focused ? "briefcase" : "briefcase-outline";
           } else if (route.name === "Accommodation") {
             iconName = focused ? "bed" : "bed-outline";
           } else if (route.name === "Course") {
             iconName = focused ? "book" : "book-outline";
-          }  else if (route.name === "Messages") {
+          } else if (route.name === "Messages") {
             iconName = focused ? "chatbubbles" : "chatbubbles-outline";
           }
 
@@ -108,13 +109,11 @@ function DrawerNavigator() {
         component={SettingsScreen}
         options={{ headerShown: true }}
       />
-        <Drawer.Screen
-            name="Logout"
-            component={LogoutScreen}
-            options={{ headerShown: true }}
-        />
-
-
+      <Drawer.Screen
+        name="Logout"
+        component={LogoutScreen}
+        options={{ headerShown: true }}
+      />
     </Drawer.Navigator>
   );
 }
@@ -123,14 +122,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Splash"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Network" component={Network} />
+        <Stack.Screen
+          name="Chat"
+          options={{ headerShown: true }}
+          component={chatMessages}
+        />
+        {/* <Stack.Screen name="Network" component={Network} /> */}
+
         <Stack.Screen
           name="Admin"
           options={{ headerShown: true }}

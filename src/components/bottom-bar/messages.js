@@ -1,54 +1,65 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
 const messages = [
   {
     id: "1",
     name: "Nazeef",
     message: "How are you doing?",
-    avatar: "https://example.com/avatar1.png", // Replace with the actual image URI
+    avatar: require("../../../assets/profile1.png"),
   },
   {
     id: "2",
     name: "Simran",
     message: "You replied: Working on the assignment",
-    avatar: "https://example.com/avatar2.png",
+    avatar: require("../../../assets/profile2.png"),
   },
   {
     id: "3",
     name: "Nandini",
     message: "Lorem Ipsum",
-    avatar: "https://example.com/avatar3.png",
+    avatar: require("../../../assets/profile3.png"),
   },
   {
     id: "4",
     name: "Jeel",
     message: "Lorem Ipsum",
-    avatar: "https://example.com/avatar4.png",
+    avatar: require("../../../assets/profile4.png"),
   },
 ];
 
-const DMs = () => {
+const Messages = ({ navigation }) => {
+  const handleNext = () => {
+    navigation.navigate("Chat");
+  };
   return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>DM's</Text>
-        </View>
-        <Text style={styles.totalMessages}>Total Messages ({messages.length})</Text>
-        <FlatList
-            data={messages}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-                <View style={styles.messageContainer}>
-                  <Image source={{ uri: item.avatar }} style={styles.avatar} />
-                  <View style={styles.textContainer}>
-                    <Text style={styles.name}>{item.name}</Text>
-                    <Text style={styles.message}>{item.message}</Text>
-                  </View>
-                </View>
-            )}
-        />
-      </View>
+    <View style={styles.container}>
+      <Text style={styles.totalMessages}>
+        Total Messages ({messages.length})
+      </Text>
+      <FlatList
+        data={messages}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => handleNext(item)}>
+            <View style={styles.messageContainer}>
+              <Image source={item.avatar} style={styles.avatar} />
+              <View style={styles.textContainer}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.message}>{item.message}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 };
 
@@ -97,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DMs;
+export default Messages;

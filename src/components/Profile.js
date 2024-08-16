@@ -3,30 +3,30 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 const Profile = () => {
   return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.profileTitle}>Profile</Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        {/* <Text style={styles.profileTitle}>Profile</Text> */}
+      </View>
+      <Image
+        style={styles.avatar}
+        source={require("../../assets/profile.png")}
+      />
+      <Text style={styles.name}>Student</Text>
+      <View style={styles.infoContainer}>
+        <View style={styles.infoBox}>
+          <Text style={styles.label}>Email Address</Text>
+          <Text style={styles.info}>Student@gmail.com</Text>
         </View>
-        <Image
-            source={{ uri: "https://example.com/your-avatar-image.png" }} // Replace with your avatar image URI
-            style={styles.avatar}
-        />
-        <Text style={styles.name}>Aditya</Text>
-        <View style={styles.infoContainer}>
-          <View style={styles.infoBox}>
-            <Text style={styles.label}>Email Address</Text>
-            <Text style={styles.info}>xyz@gmail.com</Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text style={styles.label}>Phone Number</Text>
-            <Text style={styles.info}>XXXXXXXXXX</Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text style={styles.label}>Address</Text>
-            <Text style={styles.info}>XXXXXXXXXX</Text>
-          </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.label}>Phone Number</Text>
+          <Text style={styles.info}>XXXXXXXXXX</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.label}>Address</Text>
+          <Text style={styles.info}>509 Bayfield, Barrie, ON</Text>
         </View>
       </View>
+    </View>
   );
 };
 
