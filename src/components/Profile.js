@@ -3,9 +3,30 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 const Profile = () => {
   return (
-    <View style={styles.container}>
-      <Text> Welcome to Profile</Text>
-    </View>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.profileTitle}>Profile</Text>
+        </View>
+        <Image
+            source={{ uri: "https://example.com/your-avatar-image.png" }} // Replace with your avatar image URI
+            style={styles.avatar}
+        />
+        <Text style={styles.name}>Aditya</Text>
+        <View style={styles.infoContainer}>
+          <View style={styles.infoBox}>
+            <Text style={styles.label}>Email Address</Text>
+            <Text style={styles.info}>xyz@gmail.com</Text>
+          </View>
+          <View style={styles.infoBox}>
+            <Text style={styles.label}>Phone Number</Text>
+            <Text style={styles.info}>XXXXXXXXXX</Text>
+          </View>
+          <View style={styles.infoBox}>
+            <Text style={styles.label}>Address</Text>
+            <Text style={styles.info}>XXXXXXXXXX</Text>
+          </View>
+        </View>
+      </View>
   );
 };
 
@@ -14,6 +35,45 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#fff",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  profileTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    alignSelf: "center",
+    marginBottom: 20,
+  },
+  name: {
+    fontSize: 22,
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  infoContainer: {
+    marginHorizontal: 20,
+  },
+  infoBox: {
+    marginBottom: 20,
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: "#f9f9f9",
+  },
+  label: {
+    fontSize: 16,
+    color: "#888",
+  },
+  info: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginTop: 5,
   },
 });
 

@@ -1,114 +1,60 @@
-import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const StudentCard = ({ student }) => {
-  return (
-    <View style={styles.card}>
-      <View style={styles.row}>
-        <Text style={styles.cardKey}>Student Name:</Text>
-        <Text style={styles.cardValue}>{student.name}</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.cardKey}>Need Accommodation?</Text>
-        <Text style={styles.cardValue}>Yes/No</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.cardKey}>Recommend Part-time?</Text>
-        <Text style={styles.cardValue}>Yes/No</Text>
-      </View>
-
-      <View>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Email</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Call</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+const Navigation = () => {
+    return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <TouchableOpacity style={styles.menuIcon}>
+                    <View style={styles.hamburgerIcon} />
+                    <View style={styles.hamburgerIcon} />
+                    <View style={styles.hamburgerIcon} />
+                </TouchableOpacity>
+                <Text style={styles.appName}>CConnect</Text>
+            </View>
+            <View style={styles.menu}>
+                <Text style={styles.menuItem}>Profile</Text>
+                <Text style={styles.menuItem}>Settings</Text>
+                <Text style={styles.menuItem}>Logout</Text>
+            </View>
+        </View>
+    );
 };
 
-const StudentMessages = () => {
-  const students = [
-    { name: "Student 1", needAccommodation: true, recommendPartTime: false },
-    { name: "Student 2", needAccommodation: false, recommendPartTime: true },
-    { name: "Student 3", needAccommodation: true, recommendPartTime: true },
-  ];
-
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.header}> List of Messages </Text>
-        {students.map((studentDetails, index) => (
-          <StudentCard key={index} student={studentDetails} />
-        ))}
-      </View>
-    </ScrollView>
-  );
-};
+export default Navigation;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    padding: 20,
-    backgroundColor: "#eceffb",
-  },
-  header: {
-    fontSize: 20,
-    fontWeight: "400",
-    marginBottom: 20,
-
-    textAlign: "left",
-  },
-  card: {
-    width: "100%",
-    padding: 20,
-    marginVertical: 10,
-    borderWidth: 0.1,
-    borderRadius: 5,
-    shadowOpacity: 0.1,
-    elevation: 2,
-    shadowOffset: 2,
-    backgroundColor: "#FFF",
-  },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 15,
-  },
-  cardKey: {
-    fontWeight: "300",
-  },
-  cardValue: {
-    textAlign: "right",
-  },
-  btnContainer: {},
-  line: {
-    height: 1,
-    backgroundColor: "black",
-    opacity: 0.1,
-  },
-  btnAction: {
-    backgroundColor: "red",
-  },
-  loginButton: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#5E83FB",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 8,
-    marginBottom: 10,
-  },
-  loginButtonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#f7f7f7',
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 16,
+        backgroundColor: '#333',
+    },
+    menuIcon: {
+        justifyContent: 'center',
+    },
+    hamburgerIcon: {
+        width: 30,
+        height: 3,
+        backgroundColor: 'white',
+        marginVertical: 2,
+    },
+    appName: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold',
+        alignSelf: 'center',
+    },
+    menu: {
+        padding: 20,
+    },
+    menuItem: {
+        fontSize: 16,
+        paddingVertical: 10,
+        color: '#333',
+    },
 });
-
-export default StudentMessages;
